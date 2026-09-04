@@ -58,7 +58,9 @@ MySQL 8.0（库 erp，55 张表 + 种子数据）
 双击 start.bat
 ```
 
-脚本自动检查/启动 MySQL80 服务 → 启动后端 Jar（`backend\target\erp-backend-1.0.0.jar`，内置前端页面）→ 打开浏览器 `http://localhost:8080`。
+`start.bat`（纯 ASCII 入口）自动调用 `start.ps1`（中文界面）：检查/启动 MySQL80 服务 → 启动后端 Jar（`backend\target\erp-backend-1.0.0.jar`，内置前端页面）→ 打开浏览器 `http://localhost:8080`。
+
+> 说明：`start.bat` 采用「纯 ASCII 批处理 + UTF-8(BOM) PowerShell 脚本」结构，可避免 Windows CMD 对 UTF-8 中文批处理的乱码问题（CMD 以启动时代码页解析 .bat，`.bat` 内嵌中文在不同代码页下会乱码）。若需修改启动逻辑，请编辑 `start.ps1`，勿在 `start.bat` 中添加中文。
 
 ### 方式 B：前后端分离开发模式
 
@@ -107,7 +109,8 @@ python scripts\e2e_sale.py       # 销售全流程（含应收生成、删除保
 
 ```
 D:\zuoyexiangmu
-├─ start.bat                一键启动脚本
+├─ start.bat                一键启动入口（纯 ASCII，调 start.ps1）
+├─ start.ps1                启动逻辑（中文界面，UTF-8 BOM 编码）
 ├─ README.md                本说明
 ├─ ERP系统开发文档_full.md  开发文档（口径来源）
 ├─ sql\                     erp_schema.sql / erp_seed_base.sql / erp_seed_resource.sql / erp_seed_biz.sql
