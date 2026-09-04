@@ -1,0 +1,36 @@
+server:
+  port: 8080
+  max-http-header-size: 102400
+
+spring:
+  application:
+    name: erp-backend
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/erp?useUnicode=true&characterEncoding=UTF-8&serverTimezone=Asia/Shanghai&useSSL=false&allowPublicKeyRetrieval=true
+    username: root
+    password: 123456
+  jackson:
+    date-format: yyyy-MM-dd HH:mm:ss
+    time-zone: GMT+8
+  servlet:
+    multipart:
+      max-file-size: 20MB
+      max-request-size: 20MB
+
+mybatis:
+  configuration:
+    map-underscore-to-camel-case: true
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+  type-aliases-package: com.erp.entity
+
+erp:
+  jwt:
+    secret: ErpSecretKeyForJwtSigning2026DemoOnlyDoNotUseInProd!@#
+    expire-hours: 24
+  audit:
+    enabled: true
+
+logging:
+  level:
+    com.erp: info

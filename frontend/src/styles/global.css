@@ -1,0 +1,55 @@
+/* ============ 全局样式：深蓝渐变主框架，对标原型 style.css ============ */
+:root {
+  --erp-sidebar-grad: linear-gradient(180deg, #0F2D52 0%, #16345E 55%, #1E3A6F 100%);
+  --erp-primary: #2E6BE6;
+  --erp-gold: #E8B04B;
+  --erp-header-grad: linear-gradient(90deg, #1E3A6F 0%, #2A4E8F 100%);
+  --erp-radius: 16px;
+  --erp-shadow: 0 8px 24px rgba(15, 45, 82, 0.10);
+  --erp-bg: #F3F6FB;
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html, body, #app { height: 100%; }
+body {
+  font-family: 'PingFang SC', 'Microsoft YaHei', 'Helvetica Neue', Arial, sans-serif;
+  background: var(--erp-bg);
+  color: #1F2D3D;
+  font-size: 14px;
+}
+::-webkit-scrollbar { width: 8px; height: 8px; }
+::-webkit-scrollbar-thumb { background: #B8C7E0; border-radius: 4px; }
+::-webkit-scrollbar-track { background: transparent; }
+
+/* 通用卡片 */
+.erp-card {
+  background: #fff;
+  border-radius: var(--erp-radius);
+  box-shadow: var(--erp-shadow);
+  padding: 18px 20px;
+}
+.page-title {
+  font-size: 18px;
+  font-weight: 600;
+  color: #16345E;
+  margin-bottom: 14px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.page-title::before {
+  content: '';
+  width: 4px; height: 18px;
+  background: var(--erp-primary);
+  border-radius: 2px;
+}
+.toolbar { display: flex; justify-content: space-between; align-items: center; margin-bottom: 14px; gap: 10px; flex-wrap: wrap; }
+.pagination-bar { display: flex; justify-content: flex-end; margin-top: 14px; }
+.el-table th.el-table__cell { background: var(--erp-header-grad) !important; color: #fff !important; }
+.el-table { border-radius: 10px; overflow: hidden; }
+.el-button--primary { --el-button-bg-color: var(--erp-primary); --el-button-border-color: var(--erp-primary); }
+.el-tabs__item.is-active { color: var(--erp-primary) !important; }
+.el-tabs__active-bar { background-color: var(--erp-primary) !important; }
+.dialog-footer { text-align: right; }
+.text-gold { color: var(--erp-gold); }
+.money { color: #D9534F; font-weight: 600; }
+.green { color: #18A058; }
