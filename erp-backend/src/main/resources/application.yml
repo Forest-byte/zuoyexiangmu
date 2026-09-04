@@ -1,0 +1,49 @@
+server:
+  port: 8080
+  servlet:
+    encoding:
+      charset: UTF-8
+      force: true
+
+spring:
+  application:
+    name: erp-backend
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/j180?createDatabaseIfNotExist=true&useUnicode=true&characterEncoding=utf8&useSSL=false&serverTimezone=Asia/Shanghai&allowPublicKeyRetrieval=true
+    username: root
+    password: syz20051026
+  sql:
+    init:
+      mode: always
+      encoding: utf-8
+      continue-on-error: false
+  servlet:
+    multipart:
+      max-file-size: 10MB
+      max-request-size: 20MB
+  jackson:
+    date-format: yyyy-MM-dd HH:mm:ss
+    time-zone: Asia/Shanghai
+    default-property-inclusion: non_null
+
+mybatis-plus:
+  configuration:
+    map-underscore-to-camel-case: true
+    log-impl: org.apache.ibatis.logging.slf4j.Slf4jImpl
+  global-config:
+    banner: false
+    db-config:
+      id-type: auto
+
+# ERP 自定义配置
+erp:
+  # JWT 配置（生产环境请务必更换密钥）
+  jwt:
+    secret: j180-erp-jwt-secret-key-2026-please-change-in-production-0123456789abcdef
+    # Token 有效期（小时）
+    expire-hours: 8
+
+logging:
+  level:
+    com.j180.erp: info

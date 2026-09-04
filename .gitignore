@@ -1,0 +1,22 @@
+﻿# IDE
+.idea/
+*.iml
+.vscode/
+
+# Java / Maven
+target/
+*.class
+*.jar
+!.mvn/wrapper/maven-wrapper.jar
+
+# Node / 前端
+node_modules/
+dist/
+npm-debug.log*
+
+# 系统文件
+Thumbs.db
+.DS_Store
+
+# 日志
+*.log
